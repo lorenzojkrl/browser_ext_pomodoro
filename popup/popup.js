@@ -1,5 +1,11 @@
 let tasks = []
 
+const startTimerBtn = document.getElementById('start-timer-btn')
+startTimerBtn.addEventListener("click", () => {
+  chrome.storage.local.set({
+    isRunning: true
+  })
+})
 const addTaskBtn = document.getElementById("add-task-btn")
 addTaskBtn.addEventListener("click", () => addTask())
 
