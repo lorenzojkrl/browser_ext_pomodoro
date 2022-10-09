@@ -1,3 +1,4 @@
+
 // create an alarm that goes off every second
 chrome.alarms.create("pomodoroTimer", {
   periodInMinutes: 1 / 60,

@@ -1,5 +1,21 @@
 let tasks = []
 
+const updateTime = () => {
+  chrome.storage.local.get(["timer"], res => {
+    const timerElement = document.getElementById('timer')
+    const minutes = `${25 - Math.ceil(res.timer / 60)}`.padStart(2, "0")
+    let seconds = "00"
+    if (res.timer % 60 != 0) {
+      seconds = `${60 - res.timer % 60}`.padStart(2, "0")
+    }
+
+    timerElement.textContent = `${minutes}:${seconds}`
+  })
+}
+
+updateTime()
+setInterval(updateTime, 1000)
+
 const startTimerBtn = document.getElementById('start-timer-btn')
 chrome.storage.local.get(["isRunning"], res => {
   startTimerBtn.textContent = res.isRunning ? "Pause Timer" : "Start Timer"
@@ -13,6 +29,8 @@ startTimerBtn.addEventListener("click", () => {
       startTimerBtn.textContent = !res.isRunning ? "Pause Timer" : "Start Timer"
     })
   })
+
+
 })
 
 const resetTimerBtn = document.getElementById("reset-timer-btn")
@@ -81,7 +99,7 @@ const deleteTask = (taskNumber) => {
 const renderTasks = () => {
   const taskContainer = document.getElementById("task-container")
   taskContainer.textContent = ""
-  tasks.forEach((taskText, taskNumber) => {
+  tasks.forEach((taskNumber) => {
     renderTask(taskNumber)
   })
 }
