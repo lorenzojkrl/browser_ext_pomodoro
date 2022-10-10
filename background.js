@@ -7,23 +7,33 @@ chrome.alarms.create("pomodoroTimer", {
 // when the alarm goes off
 chrome.alarms.onAlarm.addListener(alarm => {
   if (alarm.name === "pomodoroTimer") {
-    chrome.storage.local.get(["timer", "isRunning"], res => {
+    chrome.storage.local.get(["timer", "isRunning", "timeOption"], res => {
       if (res.isRunning) {
         let timer = res.timer + 1
-        console.log(timer);
+        let isRunning = true
+        if (timer === 60 * res.timeOption) {
+          this.registration.showNotification("Pomo Timer", {
+            body: `${res.timeOption} minutes has passed`,
+            icon: "icon.png"
+          })
+          timer = 0,
+            isRunning = false
+        }
         chrome.storage.local.set({
-          timer
+          timer,
+          isRunning
         })
       }
     })
   }
 })
 
-chrome.storage.local.get(["timer", "isRunning"], (res) => {
+chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
   // is there a "timer" key in the res object?
   // "timer" in res
   chrome.storage.local.set({
     timer: "timer" in res ? res.timer : 0,
-    isRunning: "isRunning" in res ? res.isRunning : false
+    isRunning: "isRunning" in res ? res.isRunning : false,
+    timeOption: "timeOption" in res ? res.timeOption : 25,
   })
 })
