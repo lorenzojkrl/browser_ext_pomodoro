@@ -48,3 +48,27 @@ body {
   align-items: center;
   padding: 20px;
 }
+
+.task-input {
+  outline: none;
+  border: 1px solid royalblue;
+  background-color: #e2d3d3;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 250px;
+  color: royalblue;
+}
+
+.task-delete {
+  outline: none;
+  border: 1px solid royalblue;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  color: royalblue;
+}
