@@ -8,10 +8,21 @@
     <title>Pomo Options</title>
   </head>
   <body>
-    <h1>Pomodoro Options</h1>
-    <label for="">Default time in minutes (1-60):</label>
-    <input id="time-option" type="number" min="1" max="60" value="25" />
-    <button id="save-btn">Save Options</button>
+    <h1>Pomodoro Timer Options</h1>
+    <div class="set-container">
+      <h2>Set Timer</h2>
+      <label for="set-time">Default time in minutes (1-60):</label>
+      <input
+        id="time-option"
+        name="set-time"
+        type="number"
+        min="1"
+        max="60"
+        value="25"
+      />
+      <button id="save-btn">Save Options</button>
+    </div>
+
     <script src="options.js"></script>
   </body>
 </html>

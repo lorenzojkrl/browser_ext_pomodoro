@@ -1,0 +1,48 @@
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
+  color: royalblue;
+  font-size: 50px;
+  font-weight: 400;
+  margin: 10px;
+  text-align: center;
+}
+
+.set-container {
+  margin-left: 10px;
+}
+
+h2 {
+  color: royalblue;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 10px 10px 10px 0;
+}
+
+.set-container label {
+  color: royalblue;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#time-option {
+  outline: none;
+  border: 1px solid royalblue;
+  background-color: #e2d3d3;
+  width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#save-btn {
+  color: royalblue;
+  outline: none;
+  border: 1px solid royalblue;
+  background-color: rgb(250, 235, 215);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
